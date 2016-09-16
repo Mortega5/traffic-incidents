@@ -1,5 +1,5 @@
 {
-  "name": "traffic-indicents",
+  "name": "traffic-incidents",
   "version": "1.0.6",
   "authors": [
     "Anonymous <anonymous@example.com>"
@@ -10,7 +10,7 @@
     "polymer",
     "seed"
   ],
-  "main": "traffic-indicents.html",
+  "main": "traffic-incidents.html",
   "license": "http://polymer.github.io/LICENSE.txt",
   "homepage": "https://github.com/<USERNAME>/seed-element/",
   "ignore": [
@@ -19,7 +19,8 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.2.0",
-    "iron-ajax": "^1.4.3"
+    "iron-ajax": "^1.4.3",
+    "paper-header-panel": "^1.1.6"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0"

@@ -1,4 +1,4 @@
-# traffic-indicents
+# traffic-incidents
 
 An element providing a starting point for your own reusable Polymer elements.
 
@@ -28,13 +28,13 @@ And you can run it via:
     polyserve
 
 Once running, you can preview your element at
-`http://localhost:8080/components/traffic-indicents/`, where `traffic-indicents` is the name of the directory containing it.
+`http://localhost:8080/components/traffic-incidents/`, where `traffic-incidents` is the name of the directory containing it.
 
 
 ## Testing Your Element
 
 Simply navigate to the `/test` directory of your element to run its tests. If
-you are using Polyserve: `http://localhost:8080/components/traffic-indicents/test/`
+you are using Polyserve: `http://localhost:8080/components/traffic-incidents/test/`
 
 ### web-component-tester
 

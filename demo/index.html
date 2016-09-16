@@ -12,22 +12,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-    <title>traffic-indicents Demo</title>
-    <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-    <link rel="import" href="../traffic-indicents.html">
+    <title>traffic-incidents Demo</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="../traffic-incidents.html">
   </head>
   <body unresolved>
     <template is="dom-bind" id="bind">
-      <p>Datos recibido ({{test}})</p>
-      <ul>
-      <template is="dom-repeat" items="{{traffic}}">
-        <li><p>{{item.description}} a las {{takeDate(item.lastModified)}}</p></li>
-      </template>
-      </ul>
-      <traffic-indicents city="Madrid" api_key_geocoding="AIzaSyC3shMTM6dD10MGqty-xugLBUFSCTICeBM"
+      <traffic-incidents city="Madrid" api_key_geocoding="AIzaSyC3shMTM6dD10MGqty-xugLBUFSCTICeBM"
         app_key_traffic="AmWMG90vJ0J9Sh2XhCp-M3AFOXJWAKqlersRRNvTIS4GyFmd3MxxigC4-l0bdvz-" auto_refresh refresh_time="60000"
         traffic_info="{{traffic}}">
-      </traffic-indicents>
+      </traffic-incidents>
 
     </template>
     <script>
@@ -35,7 +29,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var bind = document.querySelector('#bind');
         bind.test = 'no recibidos';
         bind.traffic = [];
-        document.querySelector('traffic-indicents').addEventListener('traffic_info-ready', function(e){
+        document.querySelector('traffic-incidents').addEventListener('traffic_info-ready', function(e){
           bind.test = 'ready';
         });
         bind.takeDate = function(date){
