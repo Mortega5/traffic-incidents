@@ -131,15 +131,6 @@ app_key_traffic="yout_bing_maps_key" auto_refresh refresh_time="60000">
     @apply(--ti-card);
 
   }
-  .card[severity="2"]{
-    background-color:#FFECB3;
-  }
-  .card[severity="3"]{
-    background-color:#F57C00;
-  }
-  .card[severity="4"]{
-    background-color:#c62828;
-  }
   .content {
     margin-top: -5px;
     padding:12px;
@@ -179,17 +170,13 @@ app_key_traffic="yout_bing_maps_key" auto_refresh refresh_time="60000">
   [class^="flaticon"]:before, [class*=" flaticon"]:before,
   [class^="flaticon"]:after, [class*=" flaticon"]:after {
     font-family: Flaticon;
-    font-size: 18px;
+    font-size: 25px;
     font-style: normal;
     margin-right:15px;
     padding:4px;
     font-weight: 600;
   }
-  /* Accident */
-  .flaticon[data-type="1"]:before {
-    content: "\f100";
 
-  }
   /* Congestion and mass transit*/
   .flaticon[data-type="2"]:before,
   .flaticon[data-type="4"]:before {
@@ -202,7 +189,17 @@ app_key_traffic="yout_bing_maps_key" auto_refresh refresh_time="60000">
     padding: 3px;
     color:white;
   }
-  /* Disabled vehicle */
+  .flaticon[data-type="1"]:before {
+    content: "\f100";
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: #003e87;
+    color: white;
+    text-shadow: 0px 0px 4px black;
+    box-shadow: 0px 0px 2px black, 0px 0px 2px black;
+  }
+  /* Accident  and Disabled vehicle */
+
   .flaticon[data-type="3"]:before {
     content: "\f101";
     border-radius: 50%;
@@ -221,24 +218,26 @@ app_key_traffic="yout_bing_maps_key" auto_refresh refresh_time="60000">
     background-color: #003e87;
     color: white;
     border-radius: 100%;
-    padding:0;
+    padding:0px;
     font-size:28px;
     text-shadow: 0px 0px 2px black;
+    box-shadow: 0px 0px 2px black, 0px 0px 2px black;
   }
-  /* road hazard*/
-  .flaticon[data-type="8"]:before {
+  /* Working */
+  .flaticon[data-type="9"]:before {
     content: "\f107";
-    color:black;
-    border:2px solid red;
+    background-color: white;
+    border: 2px solid red;
+    color: black;
     border-radius: 50%;
   }
-  /* Alery and working*/
-  .flaticon[data-type="10"]:before,
-  .flaticon[data-type="9"]:before {
+  /*  road hazard, Alert*/
+  .flaticon[data-type="8"]:before,
+  .flaticon[data-type="10"]:before {
     content: "\f106";
-    background-color: #FFEB3B;
-    border: 2px solid black;
-    color: red;
+    background-color: white;
+    border: 2px solid red;
+    color: black;
     border-radius: 50%;
   }
   /* Weather */
