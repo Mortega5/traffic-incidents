@@ -178,13 +178,7 @@ Polymer({
   },
   _setRefresh: function(newValue, oldValue){
     if (newValue){
-      this._interval = window.setInterval(function(){
-        if (this.refreshCity) {
-          this.$.requestGeoencode.generateRequest();
-        } else {
-          this.requestTraffic();
-        }
-      }.bind(this),this.refresh_time)
+      this._interval = window.setInterval(this.requestTraffic.bind(this),this.refresh_time)
     } else if (this._interval){
       window.clearInterval(this._interval);
     }
@@ -221,7 +215,7 @@ Polymer({
       this.set('geo_info.full_info', traffic_info[0]);
       this.set('geo_info.map', this._getMap(this.geo_info.lat,this.geo_info.lng,this.radio));
       this.refreshCity = false;
-      this.requestTraffic();
+      this._getTraffic();
     } else {
       console.log('Error Geocoding: response is empty');
       this.fire('geocoding-request-error', {error:e});
@@ -231,17 +225,18 @@ Polymer({
 
   /**
   * Get data from Bing Traffic Api
-  * @method requestTraffic
+  * @method _getTraffic
   */
 
-  requestTraffic: function(){
+  _getTraffic: function(){
+    this.fire('traffic-request_iniciated');
+    this.set('traffic_info',[]);
     // Request traffic information
     var script = document.createElement("script");
     window.GeocodeCallback = function(result){
       document.body.removeChild(script);
       if (result && result.resourceSets && result.resourceSets[0].resources){
-        this.set('traffic_info',result.resourceSets[0].resources);
-        this.notifyPath('traffic_info');
+        this.set('traffic_info', result.resourceSets[0].resources);
         this.fire('traffic_info-ready', {traffic_info:this.traffic_info});
       } else {
         console.error('Error Bind traffic: response is empty')
@@ -252,8 +247,15 @@ Polymer({
     script.setAttribute("src", this.traffic_url);
     document.body.appendChild(script);
   },
-
+  requestTraffic: function(){
+    if (this.refreshCity){
+      this.$.requestGeoencode.generateRequest();
+    } else {
+      this._getTraffic();
+    }
+  },
   // Aux function
+
   _getMap: function(lat,lng,radio){
     // Radio need be transformed to square.
     var ratio = radio / 111; // transform km in lat/lng

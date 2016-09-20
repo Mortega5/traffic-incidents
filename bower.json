@@ -2,17 +2,19 @@
   "name": "traffic-incidents",
   "version": "1.0.6",
   "authors": [
-    "Anonymous <anonymous@example.com>"
+    "Miguel Ortega Moreno <mortega@conwet.com>"
   ],
-  "description": "An element providing a solution to no problem in particular.",
+  "description": "Show a timeline of traffic issues.",
   "keywords": [
     "web-component",
     "polymer",
-    "seed"
+    "seed",
+    "traffic",
+    "incidents"
   ],
   "main": "traffic-incidents.html",
   "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/<USERNAME>/seed-element/",
+  "homepage": "https://github.com/Mortega5/traffic-indicents",
   "ignore": [
     "/.*",
     "/test/"
@@ -20,7 +22,10 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^1.2.0",
     "iron-ajax": "^1.4.3",
-    "paper-header-panel": "^1.1.6"
+    "paper-header-panel": "^1.1.6",
+    "paper-spinner": "PolymerElements/paper-spinner#^1.2.0",
+    "paper-icon-button": "PolymerElements/paper-icon-button#^1.1.2",
+    "paper-input": "PolymerElements/paper-input#^1.1.19"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0"
