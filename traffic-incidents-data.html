@@ -162,30 +162,37 @@ Polymer({
     refresh_time: {
       value: 120000,
       type: Number,
-      reflectToAttribute: true
+      reflectToAttribute: true,
+      observer: '_setRefreshTime'
     },
   },
   // Life cycle functions
   attached: function(){
     this.$.requestGeoencode.generateRequest();
     this._disableChange = true;
-    this._setRefresh();
   },
   detached: function() {
     window.clearInterval(this._interval);
   },
   // observer
-
   _cityChanged: function(newValue,oldValue){
     if (oldValue !== undefined) {
       this.refreshCity = true;
     }
   },
   _setRefresh: function(newValue, oldValue){
-    if (newValue){
+    if (newValue && this.refresh_time && !this._interval){
       this._interval = window.setInterval(this.requestTraffic.bind(this),this.refresh_time)
-    } else if (this._interval){
+    } else if (this._interval && !newValue){
       window.clearInterval(this._interval);
+    }
+  },
+  _setRefreshTime: function(newValue){
+    if (this.auto_refresh && newValue && !this._interval){
+      this._interval = window.setInterval(this.requestTraffic.bind(this),newValue);
+    } else if (this.auto_refresh && newValue){
+      window.clearInterval(this._interval);
+      this._interval = window.setInterval(this.requestTraffic.bind(this),newValue);
     }
   },
   // computed properties
