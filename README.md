@@ -14,17 +14,6 @@ Example:
 app_key_traffic="yout_bing_maps_key" auto_refresh refresh_time="60000">
 ```
 
-The following custom properties and mixins are available for styling:
-
-Custom property | Description | Default
-----------------|-------------|----------
-`--ti-width` | set the width of the host | `400px`
-`--ti-height` | set the width of the height | `450px`
-`--ti-header` | Mixin applied to header of component | `{}`
-`--ti-searchBox` | Mixin applied to search box when it is active | `{}`
-`--ti-input-container-active` | Mixin applied to the box that contain the search box | `{}`
-
-
 **NOTE** : Bing Maps API provide the traffic incident text in the primary language of the country
 where the incident occurs. For more information go to : https://msdn.microsoft.com/en-us/library/jj136866.aspx
 
