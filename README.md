@@ -1,7 +1,31 @@
 # traffic-incidents
+[Documentation and demo](https://mortega5.github.io/traffic-incidents)
 
-An element providing a starting point for your own reusable Polymer elements.
+Show a timeline of traffic issues. Its use two api:
 
+- **Google Maps Geocoding API**: to convert any address to geographical coordinates.
+
+- **Bing Maps Traffic API**    : to get information about traffic issues in any city.
+
+Example:
+```
+<traffic-incidents city="Madrid" api_key_geocoding="your_google_geocoding_key"
+app_key_traffic="yout_bing_maps_key" auto_refresh refresh_time="60000">
+```
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--ti-width` | set the width of the host | `400px`
+`--ti-height` | set the width of the height | `450px`
+`--ti-header` | Mixin applied to header of component | `{}`
+`--ti-searchBox` | Mixin applied to search box when it is active | `{}`
+`--ti-input-container-active` | Mixin applied to the box that contain the search box | `{}`
+
+
+***NOTE** : Bing Maps API provide the traffic incident text in the primary language of the country
+where the incident occurs. For more information go to : https://msdn.microsoft.com/en-us/library/jj136866.aspx
 
 ## Dependencies
 
