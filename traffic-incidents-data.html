@@ -203,7 +203,7 @@ Polymer({
     var url = '';
     if (map){
       var stringMap = map.s + ',' + map.w + ',' + map.n + ',' + map.e;
-      url = 'http://dev.virtualearth.net/REST/v1/Traffic/Incidents/' + stringMap;
+      url = 'https://dev.virtualearth.net/REST/v1/Traffic/Incidents/' + stringMap;
       url +='?key=' + key + '&jsonp=GeocodeCallback';
     }
     return url;
