@@ -10,11 +10,12 @@
     "polymer",
     "seed",
     "traffic",
-    "incidents"
+    "incidents",
+    "web-components"
   ],
   "main": "traffic-incidents.html",
   "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/Mortega5/traffic-indicents",
+  "homepage": "https://mortega5.github.io/traffic-incidents",
   "ignore": [
     "/.*",
     "/test/"
