@@ -62,7 +62,12 @@ Polymer({
   * @event traffic_info-ready
   * @event traffic_info-ready
   */
-
+  /**
+  * Fired when a traffic request is iniciated.
+  *
+  * @event traffic-request_iniciated
+  * @event traffic-request_iniciated
+  */
   properties: {
     /*
     * Params for request latitude and longitude of selected city
@@ -152,7 +157,7 @@ Polymer({
       notify: true
     },
     /*
-    * How often traffic information is requested if `auto_refresh` is true
+    * How often traffic information is requested if `auto_refresh` is true (in seconds).
     */
     refresh_time: {
       value: 120000,
@@ -205,7 +210,6 @@ Polymer({
   },
 
   // Ajax response callback
-
   _geocodingResponse:function(e,res){
     var traffic_info = res.response.results;
     if (traffic_info && traffic_info.length > 0 ){
@@ -223,10 +227,6 @@ Polymer({
   },
 
 
-  /**
-  * Get data from Bing Traffic Api
-  * @method _getTraffic
-  */
 
   _getTraffic: function(){
     this.fire('traffic-request_iniciated');
@@ -247,6 +247,12 @@ Polymer({
     script.setAttribute("src", this.traffic_url);
     document.body.appendChild(script);
   },
+
+  /**
+  * Get data from Bing Traffic Api. If city was changed, a geocoding request
+  * is generated
+  * @method requestTraffic
+  */
   requestTraffic: function(){
     if (this.refreshCity){
       this.$.requestGeoencode.generateRequest();
