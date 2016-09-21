@@ -8,7 +8,8 @@ Show a timeline of traffic issues. Its use two api:
 - **Bing Maps Traffic API**    : to get information about traffic issues in any city.
 
 Example:
-```
+
+```html
 <traffic-incidents city="Madrid" api_key_geocoding="your_google_geocoding_key"
 app_key_traffic="yout_bing_maps_key" auto_refresh refresh_time="60000">
 ```
@@ -24,7 +25,7 @@ Custom property | Description | Default
 `--ti-input-container-active` | Mixin applied to the box that contain the search box | `{}`
 
 
-***NOTE** : Bing Maps API provide the traffic incident text in the primary language of the country
+**NOTE** : Bing Maps API provide the traffic incident text in the primary language of the country
 where the incident occurs. For more information go to : https://msdn.microsoft.com/en-us/library/jj136866.aspx
 
 ## Dependencies
