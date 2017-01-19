@@ -149,7 +149,7 @@ Polymer({
     * `auto_refresh` is true when we want to refresh automatically each any (`refresh_time`) seconds
     */
     auto_refresh: {
-      value: false,
+      value: true,
       type: Boolean,
       reflectToAttribute: true,
       observer: '_setRefresh',
@@ -227,8 +227,7 @@ Polymer({
       this.refreshCity = false;
       this._getTraffic();
     } else {
-      console.log('Error Geocoding: response is empty');
-      this.fire('geocoding-request-error', {error:e});
+      this.fire('geocoding-request-error', {error:e, code: 404});
     }
   },
 

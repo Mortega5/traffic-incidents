@@ -13,6 +13,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   @blurb Boton de login para google+
   @status beta
   @homepage https://github.com/Mortega5/google-login
+  @demo demo/index.html
+  @hero hero.svg
+
 
 Show a timeline of traffic issues. Its use two api:
 
@@ -88,9 +91,9 @@ where the incident occurs. For more information go to : https://msdn.microsoft.c
   paper-header-panel {
     width: 100%;
     height: 100%;
-    @apply(--shadow-elevation-3dp);
     background-color: #eee;
     font-family: 'Dosis', sans-serif;
+    @apply(--shadow-elevation-3dp);
   }
   .paper-header {
     height: var(--ti-header-height, 50px);
@@ -331,7 +334,7 @@ where the incident occurs. For more information go to : https://msdn.microsoft.c
   <traffic-incidents-data id="traffic" city="{{city}}" api_key_geocoding="{{api_key_geocoding}}"
   app_key_traffic="{{app_key_traffic}}" auto_refresh="{{auto_refresh}}" refresh_time="{{refresh_time}}"
   traffic_info="{{traffic_info}}" radio="{{radio}}" on-traffic_info-ready="_data_ready"
-  on-traffic-request_iniciated="_loading_data"></traffic-incidents-data>
+  on-traffic-request_iniciated="_loading_data" on-geocoding-request-error="_empty"></traffic-incidents-data>
 
   <paper-header-panel mode="waterfall-tall">
     <div class="paper-header horizontal layout center" active$="{{active}}">
@@ -551,6 +554,9 @@ Polymer({
   refresh: function(){
     this.$.traffic.requestTraffic();
   },
+  _empty: function(){
+    this.set('traffic_info', []);
+  }
 });
 </script>
 </dom-module>
