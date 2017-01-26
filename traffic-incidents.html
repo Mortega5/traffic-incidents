@@ -331,11 +331,14 @@ where the incident occurs. For more information go to : https://msdn.microsoft.c
 
   <paper-header-panel mode="waterfall-tall">
     <div class="paper-header horizontal layout center" active$="{{active}}">
-      <p class="title">Traffic Incidents <span style="text-transform:capitalize">({{city}})</span></p>
-      <paper-icon-button icon="search" on-click="toggleInput"></paper-icon-button>
+      <paper-icon-button icon="search" id="search" on-click="toggleInput"></paper-icon-button>
       <div class="input-container">
         <input id="searchBox" placeholder="Search City" on-blur="blurInput" on-keyup="keyupInput"/>
       </div>
+      <p class="title" id="name">
+        Traffic Incidents <span style="text-transform:capitalize">({{city}})</span>
+        </p>
+      <paper-icon-button id="refresh" on-click="refresh" icon="refresh"></paper-icon-button>
     </div>
 
     <div class="content">
@@ -526,6 +529,7 @@ Polymer({
   toggleInput: function(e){
     this.active = !this.active;
     if (this.active){
+      this.$.name.hidden = true;
       this.$.searchBox.focus();
     }
   },
@@ -534,10 +538,12 @@ Polymer({
     if (!target.value){
       this.toggleInput();
       target.blur();
+      this.$.name.hidden = false;
     }
   },
   keyupInput: function(e){
     if (e.keyCode === 13){
+      this.$.name.hidden = false;
       this.city = this.$.searchBox.value;
       this.$.traffic.requestTraffic();
       this.$.searchBox.value = "";
