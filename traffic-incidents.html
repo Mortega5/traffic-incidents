@@ -360,8 +360,15 @@ where the incident occurs. For more information go to : https://msdn.microsoft.c
         <paper-spinner active="{{_loading}}"></paper-spinner>
       </div>
       <template is="dom-if" if="{{_isEmpty}}">
+        <template is="dom-if" if="{{city}}">
+          <div class="card">
+            {{no_incidents}}
+          </div>
+        </template>
+      </template>
+      <template is="dom-if" if="{{!city}}">
         <div class="card">
-          {{no_incidents}}
+          <p>Search a city using the search box</p>
         </div>
       </template>
     </div>
@@ -555,6 +562,12 @@ Polymer({
   },
   _empty: function(){
     this.set('traffic_info', []);
+  },
+  attached: function(){
+    if (!this.city) {
+      this._loading = false;
+      this.$.search.click();
+    }
   }
 });
 </script>
